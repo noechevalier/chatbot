@@ -8,9 +8,10 @@ const Home = () => {
     "Basic chat": "basic-chat",
     "Function calling": "function-calling",
     "File search": "file-search",
+    "File search": "file-search",
     All: "all",
   };
-
+https://api.callfluent.ai/api/call-api/make-call/519
   return (
     <main className={styles.main}>
       <div className={styles.title}>
