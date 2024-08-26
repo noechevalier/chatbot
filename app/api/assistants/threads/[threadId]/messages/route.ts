@@ -1,5 +1,6 @@
 import { assistantId } from "@/app/assistant-config";
 import { openai } from "@/app/openai";
+import { json } from "stream/consumers";
 
 export const runtime = "nodejs";
 
@@ -17,4 +18,18 @@ export async function POST(request, { params: { threadId } }) {
   });
 
   return new Response(stream.toReadableStream());
+}
+
+// List all messages on the thread
+export async function GET(request, { params: { threadId } }) {
+  try {
+    const res = await openai.beta.threads.messages.list(threadId);
+
+    return new Response(JSON.stringify(res), {
+      headers: { 'Content-Type': 'application/json' }
+    });
+  } catch (error) {
+    console.error("Error in GET request:", error);
+    return new Response("Internal Server Error", { status: 500 });
+  }
 }

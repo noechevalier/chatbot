@@ -6,9 +6,6 @@ import styles from "./page.module.css";
 const Home = () => {
   const categories = {
     "Basic chat": "basic-chat",
-    "Function calling": "function-calling",
-    "File search": "file-search",
-    All: "all",
   };
 
   return (
